@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Request Blood — BloodConnect Karnataka</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="recipient-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">BloodConnect Karnataka</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="donor.html">Donor</a>
+        <a href="recipient.html">Request</a>
+        <a href="map.html">Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" style="max-width:720px;margin:28px auto;">
+      <h2>Request Blood</h2>
+
+      <form id="requestForm" style="margin-top:12px">
+        <label for="reqBlood">Blood group</label>
+        <select id="reqBlood" required>
+          <option value="">Select blood group</option>
+          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+        </select>
+
+        <label for="reqDistrict">District</label>
+        <select id="reqDistrict" required></select>
+
+        <label for="reqCity">City / Locality</label>
+        <select id="reqCity" required><option value="">Select district first</option></select>
+
+        <label for="reqState">State</label>
+        <input id="reqState" type="text" value="Karnataka" readonly />
+
+        <button type="submit" class="btn btn-primary">Search Donors</button>
+      </form>
+
+      <p id="requestMsg" class="muted" style="margin-top:10px"></p>
+      <p class="muted">After searching, open the <a href="map.html">Map</a> to see donors and recipients visually.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2025 BloodConnect Karnataka</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

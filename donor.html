@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register Donor — BloodConnect Karnataka</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="donor-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">BloodConnect Karnataka</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="donor.html">Donor</a>
+        <a href="recipient.html">Request</a>
+        <a href="map.html">Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" style="max-width:720px;margin:28px auto;">
+      <h2>Register as a Donor</h2>
+
+      <form id="donorForm" style="margin-top:12px">
+        <label for="donorName">Full name</label>
+        <input id="donorName" type="text" placeholder="Full name" required />
+
+        <label for="donorBlood">Blood group</label>
+        <select id="donorBlood" required>
+          <option value="">Select blood group</option>
+          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+        </select>
+
+        <label for="donorDistrict">District</label>
+        <select id="donorDistrict" required></select>
+
+        <label for="donorCity">City / Locality</label>
+        <select id="donorCity" required><option value="">Select district first</option></select>
+
+        <label for="donorState">State</label>
+        <input id="donorState" type="text" value="Karnataka" readonly />
+
+        <button type="submit" class="btn btn-primary">Add Donor</button>
+      </form>
+
+      <p id="donorMsg" class="muted" style="margin-top:10px"></p>
+      <p class="muted" style="margin-top:8px">Tip: Pick the district, then pick the city/locality from the list.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2025 BloodConnect Karnataka</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

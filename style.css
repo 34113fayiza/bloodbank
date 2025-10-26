@@ -1,0 +1,166 @@
+:root{
+  --bg: #f4f6f8;
+  --card: #383232;
+  --accent: #d32f2f;
+  --accent-2: #ff7043;
+  --success: #2e7d32;
+  --muted: #000000;
+  --text: #0f172a;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+/* Header */
+.site-header{background:linear-gradient(90deg,#b71c1c,#d32f2f);color:#fff}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{font-weight:800;letter-spacing:0.3px}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
+
+/* Hero */
+.hero{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:28px 0}
+.hero-left{flex:1}
+.hero h1{margin:0;font-size:28px}
+.muted{color:var(--muted)}
+
+/* Buttons */
+.cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 16px;border-radius:10px;border:none;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--accent);color:white}
+.btn-secondary{background:white;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
+.btn-outline{background:transparent;color:white;border:1px solid rgba(255,255,255,0.12)}
+
+/* Card */
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(15,23,42,0.06)}
+
+/* Forms */
+form{display:grid;gap:10px;align-items:start}
+label{font-weight:600}
+input,select,textarea{padding:10px;border-radius:8px;border:1px solid #e6e9ee}
+input[readonly]{background:#f7f7f7}
+
+/* Footer */
+.site-footer{padding:18px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* Stats grid */
+.stats{background:var(--card);padding:20px;border-radius:10px;margin:30px auto;width:90%;box-shadow:0 0 8px rgba(0,0,0,0.05)}
+.blood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin-top:12px}
+.blood-box{background:#fff0f0;padding:10px;border-radius:10px;font-weight:700;color:var(--accent);box-shadow:0 0 5px rgba(0,0,0,0.05);}
+
+/* Small extras for map page actions and controls */
+.controls { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+.small-input { padding:8px 10px; border-radius:8px; border:1px solid #e6e9ee; }
+.action-btn { padding:6px 8px; border-radius:6px; cursor:pointer; border:none; font-size:13px }
+.edit-btn { background:#1976d2;color:white }
+.del-btn { background:#d32f2f;color:white }
+
+/* Hero background (optional) - put your image in assets/images/home_bg.jpg if you want */
+.hero-bg {
+  /* Example hero background. Uncomment and set path if you have images:
+     background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25)), url('assets/images/home_bg.jpg') center/cover no-repeat;
+     color: #fff;
+  */
+  padding: 28px;
+  border-radius: 12px;
+}
+
+/* Make header/card readable on image backgrounds */
+.site-header, .site-footer { background-color: rgba(255,255,255,0.95); backdrop-filter: blur(3px); position: sticky; top: 0; z-index: 50; }
+
+/* Modal and stacking fixes (append) */
+.modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; z-index:2000; }
+.modal { background:#fff; width:min(720px,95%); border-radius:12px; padding:18px; box-shadow:0 20px 60px rgba(2,6,23,0.35); }
+.modal h3 { margin-top:0; }
+.modal form{ display:grid; gap:10px; }
+.modal .modal-actions{ display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+.hidden { display:none; }
+
+/* Ensure map sits under modal */
+#map { z-index: 1; position: relative; }
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero h1{font-size:22px}
+  .container{padding:12px}
+  .modal { width: min(560px,95%); padding:14px; }
+}
+/* === PAGE BACKGROUNDS (Final Setup) === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* === HOME PAGE === */
+.home-page {
+  background-image: url('images/home-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.35);
+  background-blend-mode: overlay;
+  color: white;
+}
+
+/* === DONOR PAGE === */
+.donor-page {
+  background-image: url('images/donor-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: overlay;
+  color: white;
+}
+
+/* === RECIPIENT PAGE === */
+.recipient-page {
+  background-image: url('images/recipient-bg.avif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: overlay;
+  color: white;
+}
+
+/* === Common readability styling === */
+header, footer {
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  backdrop-filter: blur(4px);
+}
+
+main {
+  padding: 40px;
+}
+
+.btn {
+  background: #b71c1c;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #7f0000;
+}
+
+/* On smaller screens, remove fixed backgrounds */
+@media (max-width: 900px) {
+  .home-page, .donor-page, .recipient-page {
+    background-attachment: scroll;
+  }
+}
+
+
+
