@@ -1,10 +1,10 @@
 :root{
   --bg: #f4f6f8;
-  --card: #8d8686;
+  --card: #ffffff;
   --accent: #d32f2f;
   --accent-2: #ff7043;
   --success: #2e7d32;
-  --muted: #000000;
+  --muted: #dcdee2;
   --text: #0f172a;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
@@ -56,20 +56,13 @@ input[readonly]{background:#f7f7f7}
 .edit-btn { background:#1976d2;color:white }
 .del-btn { background:#d32f2f;color:white }
 
-/* Hero background (optional) - put your image in assets/images/home_bg.jpg if you want */
-.hero-bg {
-  /* Example hero background. Uncomment and set path if you have images:
-     background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25)), url('assets/images/home_bg.jpg') center/cover no-repeat;
-     color: #fff;
-  */
-  padding: 28px;
-  border-radius: 12px;
-}
+/* Hero background (optional) */
+.hero-bg { padding: 28px; border-radius: 12px; }
 
 /* Make header/card readable on image backgrounds */
 .site-header, .site-footer { background-color: rgba(255,255,255,0.95); backdrop-filter: blur(3px); position: sticky; top: 0; z-index: 50; }
 
-/* Modal and stacking fixes (append) */
+/* Modal and stacking fixes */
 .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; z-index:2000; }
 .modal { background:#fff; width:min(720px,95%); border-radius:12px; padding:18px; box-shadow:0 20px 60px rgba(2,6,23,0.35); }
 .modal h3 { margin-top:0; }
@@ -87,72 +80,51 @@ input[readonly]{background:#f7f7f7}
   .container{padding:12px}
   .modal { width: min(560px,95%); padding:14px; }
 }
+
 /* === PAGE BACKGROUNDS (Final Setup) === */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+html, body { height: 100%; margin: 0; padding: 0; }
 
-/* === HOME PAGE === */
-.home-page {
-  background-image: url('images/home-bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.35);
-  background-blend-mode: overlay;
-  color: white;
-}
-
-/* === DONOR PAGE === */
-.donor-page {
-  background-image: url('images/donor-bg.webp');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.45);
-  background-blend-mode: overlay;
-  color: white;
-}
-
-/* === RECIPIENT PAGE === */
-.recipient-page {
-  background-image: url('images/recipient-bg.avif');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.45);
-  background-blend-mode: overlay;
-  color: white;
-}
+/* === HOME / DONOR / RECIPIENT page backgrounds (visual override) === */
+.home-page { background-image: url('images/home-bg.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover; background-attachment: fixed; background-color: rgba(0,0,0,0.35); background-blend-mode: overlay; color: white; }
+.donor-page { background-image: url('images/donor-bg.webp'); background-repeat: no-repeat; background-position: center center; background-size: cover; background-attachment: fixed; background-color: rgba(0,0,0,0.45); background-blend-mode: overlay; color: white; }
+.recipient-page { background-image: url('images/recipient-bg.avif'); background-repeat: no-repeat; background-position: center center; background-size: cover; background-attachment: fixed; background-color: rgba(0,0,0,0.45); background-blend-mode: overlay; color: white; }
 
 /* === Common readability styling === */
-header, footer {
-  background: rgba(255, 255, 255, 0.9);
-  color: black;
-  backdrop-filter: blur(4px);
+header, footer { background: rgba(255, 255, 255, 0.9); color: black; backdrop-filter: blur(4px); }
+main { padding: 40px; }
+
+.btn { background: #b71c1c; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; }
+.btn:hover { background: #7f0000; }
+
+/* Force black text for donor and recipient tables below map */
+#donorTable,
+#recipientTable,
+#donorTable th,
+#recipientTable th,
+#donorTable td,
+#recipientTable td {
+  color: #000 !important;
 }
 
-main {
-  padding: 40px;
+/* CTA button pop effect (home page) */
+.cta-row .btn {
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms ease, opacity 120ms ease;
+  will-change: transform, box-shadow;
+  transform-origin: center;
 }
-
-.btn {
-  background: #b71c1c;
-  color: white;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+.cta-row .btn:hover,
+.cta-row .btn:focus {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+  z-index: 20;
 }
-
-.btn:hover {
-  background: #7f0000;
+.cta-row .btn:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.12);
+}
+.cta-row .btn:focus {
+  outline: 3px solid rgba(211,47,47,0.14);
+  outline-offset: 4px;
 }
 
 /* On smaller screens, remove fixed backgrounds */
@@ -160,6 +132,10 @@ main {
   .home-page, .donor-page, .recipient-page {
     background-attachment: scroll;
   }
+}
+/* Keep form labels and card content readable (dark) even on pages with image backgrounds) */
+.card, .card * {
+  color: var(--text) !important;
 }
 
 

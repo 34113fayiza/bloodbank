@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Register Donor — BloodConnect Karnataka</title>
+  <title>BloodConnect Karnataka — Donor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="donor-page">
@@ -20,43 +20,68 @@
   </header>
 
   <main class="container">
-    <section class="card" style="max-width:720px;margin:28px auto;">
-      <h2>Register as a Donor</h2>
+    <section class="hero hero-bg">
+      <div class="hero-left">
+        <h1>Register as a blood donor</h1>
+        <p class="muted">Adding donors stores the entry in your browser (localStorage). Map and stats update live.</p>
+      </div>
 
-      <form id="donorForm" style="margin-top:12px">
-        <label for="donorName">Full name</label>
-        <input id="donorName" type="text" placeholder="Full name" required />
+      <div class="hero-right card">
+        <h3 style="margin:0">Quick stats</h3>
+        <p class="muted" style="margin-top:8px">Live counts of donors by blood group (updates as donors are added).</p>
+        <div id="bloodStats" class="blood-grid" style="margin-top:12px"></div>
+      </div>
+    </section>
 
-        <label for="donorBlood">Blood group</label>
+    <section class="card" style="margin-top:20px">
+      <h2 style="margin:0 0 10px 0">Donor Form</h2>
+
+      <form id="donorForm" autocomplete="off">
+        <!-- Personal details heading -->
+        <h4 style="margin:6px 0 4px 0;font-size:15px">Personal details</h4>
+
+        <label for="donorName">Full name <span style="color:#d32f2f">*</span></label>
+        <input id="donorName" name="donorName" placeholder="e.g. Ramesh Kumar" required />
+
+        <label for="donorPhone">Phone <span style="color:#d32f2f">*</span></label>
+        <input id="donorPhone" name="donorPhone" placeholder="+91 98765 43210" required />
+
+        <!-- Contact / medical -->
+        <h4 style="margin:12px 0 4px 0;font-size:15px">Medical</h4>
+
+        <label for="donorBlood">Blood group <span style="color:#d32f2f">*</span></label>
         <select id="donorBlood" required>
           <option value="">Select blood group</option>
           <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
           <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
         </select>
 
-        <label for="donorDistrict">District</label>
+        <!-- Location heading -->
+        <h4 style="margin:12px 0 4px 0;font-size:15px">Location</h4>
+
+        <label for="donorDistrict">District <span style="color:#d32f2f">*</span></label>
         <select id="donorDistrict" required></select>
 
-        <label for="donorCity">City / Locality</label>
-        <select id="donorCity" required><option value="">Select district first</option></select>
+        <label for="donorCity">City / locality <span style="color:#d32f2f">*</span></label>
+        <select id="donorCity" required></select>
 
         <label for="donorState">State</label>
-        <input id="donorState" type="text" value="Karnataka" readonly />
+        <input id="donorState" value="Karnataka" readonly />
 
-        <button type="submit" class="btn btn-primary">Add Donor</button>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+          <button type="submit" class="btn btn-primary">Add Donor</button>
+          <div id="donorMsg" style="margin-left:8px"></div>
+        </div>
       </form>
-
-      <p id="donorMsg" class="muted" style="margin-top:10px"></p>
-      <p class="muted" style="margin-top:8px">Tip: Pick the district, then pick the city/locality from the list.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><p>© 2025 BloodConnect Karnataka</p></div>
+    <div class="container">
+      <p>© 2025 BloodConnect Karnataka • Built by you</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Request Blood — BloodConnect Karnataka</title>
+  <title>BloodConnect Karnataka — Request</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="recipient-page">
@@ -20,36 +20,66 @@
   </header>
 
   <main class="container">
-    <section class="card" style="max-width:720px;margin:28px auto;">
-      <h2>Request Blood</h2>
+    <section class="hero hero-bg">
+      <div class="hero-left">
+        <h1>Request blood</h1>
+        <p class="muted">Search donors by blood group and location. Requests are stored locally and shown on the map.</p>
+      </div>
 
-      <form id="requestForm" style="margin-top:12px">
-        <label for="reqBlood">Blood group</label>
+      <div class="hero-right card">
+        <h3 style="margin:0">Quick stats</h3>
+        <p class="muted" style="margin-top:8px">Live counts of donors by blood group (updates as donors are added).</p>
+        <div id="bloodStats" class="blood-grid" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h2 style="margin:0 0 10px 0">Request Form</h2>
+
+      <form id="requestForm" autocomplete="off">
+        <!-- Personal / contact -->
+        <h4 style="margin:6px 0 4px 0;font-size:15px">Contact</h4>
+
+        <label for="reqName">Patient / Contact name</label>
+        <input id="reqName" name="reqName" placeholder="e.g. Anita R" />
+
+        <label for="reqPhone">Phone <span style="color:#d32f2f">*</span></label>
+        <input id="reqPhone" name="reqPhone" placeholder="+91 98765 43210" required />
+
+        <!-- Blood details -->
+        <h4 style="margin:12px 0 4px 0;font-size:15px">Blood required</h4>
+
+        <label for="reqBlood">Blood group <span style="color:#d32f2f">*</span></label>
         <select id="reqBlood" required>
           <option value="">Select blood group</option>
           <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
           <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
         </select>
 
-        <label for="reqDistrict">District</label>
+        <!-- Location heading -->
+        <h4 style="margin:12px 0 4px 0;font-size:15px">Location</h4>
+
+        <label for="reqDistrict">District <span style="color:#d32f2f">*</span></label>
         <select id="reqDistrict" required></select>
 
-        <label for="reqCity">City / Locality</label>
-        <select id="reqCity" required><option value="">Select district first</option></select>
+        <label for="reqCity">City / locality <span style="color:#d32f2f">*</span></label>
+        <select id="reqCity" required></select>
 
         <label for="reqState">State</label>
-        <input id="reqState" type="text" value="Karnataka" readonly />
+        <input id="reqState" value="Karnataka" readonly />
 
-        <button type="submit" class="btn btn-primary">Search Donors</button>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+          <button type="submit" class="btn btn-primary">Request</button>
+          <div id="requestMsg" style="margin-left:8px"></div>
+        </div>
       </form>
-
-      <p id="requestMsg" class="muted" style="margin-top:10px"></p>
-      <p class="muted">After searching, open the <a href="map.html">Map</a> to see donors and recipients visually.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><p>© 2025 BloodConnect Karnataka</p></div>
+    <div class="container">
+      <p>© 2025 BloodConnect Karnataka • Built by you</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
